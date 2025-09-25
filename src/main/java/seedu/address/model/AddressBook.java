@@ -1,21 +1,21 @@
 package seedu.address.model;
 
-import static java.util.Objects.requireNonNull;
+import javafx.collections.ObservableList;
+import seedu.address.commons.util.ToStringBuilder;
+import seedu.address.model.player.Player;
+import seedu.address.model.player.UniquePlayerList;
 
 import java.util.List;
 
-import javafx.collections.ObservableList;
-import seedu.address.commons.util.ToStringBuilder;
-import seedu.address.model.person.Person;
-import seedu.address.model.person.UniquePersonList;
+import static java.util.Objects.requireNonNull;
 
 /**
  * Wraps all data at the address-book level
- * Duplicates are not allowed (by .isSamePerson comparison)
+ * Duplicates are not allowed (by .isSamePlayer comparison)
  */
 public class AddressBook implements ReadOnlyAddressBook {
 
-    private final UniquePersonList persons;
+    private final UniquePlayerList players;
 
     /*
      * The 'unusual' code block below is a non-static initialization block, sometimes used to avoid duplication
@@ -23,15 +23,15 @@ public class AddressBook implements ReadOnlyAddressBook {
      *
      * Note that non-static init blocks are not recommended to use. There are other ways to avoid duplication
      *   among constructors.
-     */
-    {
-        persons = new UniquePersonList();
+     */ {
+        players = new UniquePlayerList();
     }
 
-    public AddressBook() {}
+    public AddressBook() {
+    }
 
     /**
-     * Creates an AddressBook using the Persons in the {@code toBeCopied}
+     * Creates an AddressBook using the Players in the {@code toBeCopied}
      */
     public AddressBook(ReadOnlyAddressBook toBeCopied) {
         this();
@@ -41,11 +41,11 @@ public class AddressBook implements ReadOnlyAddressBook {
     //// list overwrite operations
 
     /**
-     * Replaces the contents of the person list with {@code persons}.
-     * {@code persons} must not contain duplicate persons.
+     * Replaces the contents of the player list with {@code players}.
+     * {@code players} must not contain duplicate players.
      */
-    public void setPersons(List<Person> persons) {
-        this.persons.setPersons(persons);
+    public void setPlayers(List<Player> players) {
+        this.players.setPlayers(players);
     }
 
     /**
@@ -54,58 +54,58 @@ public class AddressBook implements ReadOnlyAddressBook {
     public void resetData(ReadOnlyAddressBook newData) {
         requireNonNull(newData);
 
-        setPersons(newData.getPersonList());
+        setPlayers(newData.getPlayerList());
     }
 
-    //// person-level operations
+    //// player-level operations
 
     /**
-     * Returns true if a person with the same identity as {@code person} exists in the address book.
+     * Returns true if a player with the same identity as {@code player} exists in the address book.
      */
-    public boolean hasPerson(Person person) {
-        requireNonNull(person);
-        return persons.contains(person);
+    public boolean hasPlayer(Player player) {
+        requireNonNull(player);
+        return players.contains(player);
     }
 
     /**
-     * Adds a person to the address book.
-     * The person must not already exist in the address book.
+     * Adds a player to the address book.
+     * The player must not already exist in the address book.
      */
-    public void addPerson(Person p) {
-        persons.add(p);
+    public void addPlayer(Player p) {
+        players.add(p);
     }
 
     /**
-     * Replaces the given person {@code target} in the list with {@code editedPerson}.
+     * Replaces the given player {@code target} in the list with {@code editedPlayer}.
      * {@code target} must exist in the address book.
-     * The person identity of {@code editedPerson} must not be the same as another existing person in the address book.
+     * The player identity of {@code editedPlayer} must not be the same as another existing player in the address book.
      */
-    public void setPerson(Person target, Person editedPerson) {
-        requireNonNull(editedPerson);
+    public void setPlayer(Player target, Player editedPlayer) {
+        requireNonNull(editedPlayer);
 
-        persons.setPerson(target, editedPerson);
+        players.setPlayer(target, editedPlayer);
     }
 
     /**
      * Removes {@code key} from this {@code AddressBook}.
      * {@code key} must exist in the address book.
      */
-    public void removePerson(Person key) {
-        persons.remove(key);
+    public void removePlayer(Player key) {
+        players.remove(key);
     }
 
-    //// util methods
+    /// / util methods
 
     @Override
     public String toString() {
         return new ToStringBuilder(this)
-                .add("persons", persons)
-                .toString();
+            .add("players", players)
+            .toString();
     }
 
     @Override
-    public ObservableList<Person> getPersonList() {
-        return persons.asUnmodifiableObservableList();
+    public ObservableList<Player> getPlayerList() {
+        return players.asUnmodifiableObservableList();
     }
 
     @Override
@@ -120,11 +120,11 @@ public class AddressBook implements ReadOnlyAddressBook {
         }
 
         AddressBook otherAddressBook = (AddressBook) other;
-        return persons.equals(otherAddressBook.persons);
+        return players.equals(otherAddressBook.players);
     }
 
     @Override
     public int hashCode() {
-        return persons.hashCode();
+        return players.hashCode();
     }
 }

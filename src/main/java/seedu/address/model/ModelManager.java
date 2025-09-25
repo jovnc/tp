@@ -1,17 +1,17 @@
 package seedu.address.model;
 
-import static java.util.Objects.requireNonNull;
-import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
+import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import seedu.address.commons.core.GuiSettings;
+import seedu.address.commons.core.LogsCenter;
+import seedu.address.model.player.Player;
 
 import java.nio.file.Path;
 import java.util.function.Predicate;
 import java.util.logging.Logger;
 
-import javafx.collections.ObservableList;
-import javafx.collections.transformation.FilteredList;
-import seedu.address.commons.core.GuiSettings;
-import seedu.address.commons.core.LogsCenter;
-import seedu.address.model.person.Person;
+import static java.util.Objects.requireNonNull;
+import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
 /**
  * Represents the in-memory model of the address book data.
@@ -21,7 +21,7 @@ public class ModelManager implements Model {
 
     private final AddressBook addressBook;
     private final UserPrefs userPrefs;
-    private final FilteredList<Person> filteredPersons;
+    private final FilteredList<Player> filteredPlayers;
 
     /**
      * Initializes a ModelManager with the given addressBook and userPrefs.
@@ -33,7 +33,7 @@ public class ModelManager implements Model {
 
         this.addressBook = new AddressBook(addressBook);
         this.userPrefs = new UserPrefs(userPrefs);
-        filteredPersons = new FilteredList<>(this.addressBook.getPersonList());
+        filteredPlayers = new FilteredList<>(this.addressBook.getPlayerList());
     }
 
     public ModelManager() {
@@ -43,14 +43,14 @@ public class ModelManager implements Model {
     //=========== UserPrefs ==================================================================================
 
     @Override
-    public void setUserPrefs(ReadOnlyUserPrefs userPrefs) {
-        requireNonNull(userPrefs);
-        this.userPrefs.resetData(userPrefs);
+    public ReadOnlyUserPrefs getUserPrefs() {
+        return userPrefs;
     }
 
     @Override
-    public ReadOnlyUserPrefs getUserPrefs() {
-        return userPrefs;
+    public void setUserPrefs(ReadOnlyUserPrefs userPrefs) {
+        requireNonNull(userPrefs);
+        this.userPrefs.resetData(userPrefs);
     }
 
     @Override
@@ -78,54 +78,54 @@ public class ModelManager implements Model {
     //=========== AddressBook ================================================================================
 
     @Override
-    public void setAddressBook(ReadOnlyAddressBook addressBook) {
-        this.addressBook.resetData(addressBook);
-    }
-
-    @Override
     public ReadOnlyAddressBook getAddressBook() {
         return addressBook;
     }
 
     @Override
-    public boolean hasPerson(Person person) {
-        requireNonNull(person);
-        return addressBook.hasPerson(person);
+    public void setAddressBook(ReadOnlyAddressBook addressBook) {
+        this.addressBook.resetData(addressBook);
     }
 
     @Override
-    public void deletePerson(Person target) {
-        addressBook.removePerson(target);
+    public boolean hasPlayer(Player player) {
+        requireNonNull(player);
+        return addressBook.hasPlayer(player);
     }
 
     @Override
-    public void addPerson(Person person) {
-        addressBook.addPerson(person);
-        updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
+    public void deletePlayer(Player target) {
+        addressBook.removePlayer(target);
     }
 
     @Override
-    public void setPerson(Person target, Person editedPerson) {
-        requireAllNonNull(target, editedPerson);
-
-        addressBook.setPerson(target, editedPerson);
+    public void addPlayer(Player player) {
+        addressBook.addPlayer(player);
+        updateFilteredPlayerList(PREDICATE_SHOW_ALL_PLAYERS);
     }
 
-    //=========== Filtered Person List Accessors =============================================================
+    @Override
+    public void setPlayer(Player target, Player editedPlayer) {
+        requireAllNonNull(target, editedPlayer);
+
+        addressBook.setPlayer(target, editedPlayer);
+    }
+
+    //=========== Filtered Player List Accessors =============================================================
 
     /**
-     * Returns an unmodifiable view of the list of {@code Person} backed by the internal list of
+     * Returns an unmodifiable view of the list of {@code Player} backed by the internal list of
      * {@code versionedAddressBook}
      */
     @Override
-    public ObservableList<Person> getFilteredPersonList() {
-        return filteredPersons;
+    public ObservableList<Player> getFilteredPlayerList() {
+        return filteredPlayers;
     }
 
     @Override
-    public void updateFilteredPersonList(Predicate<Person> predicate) {
+    public void updateFilteredPlayerList(Predicate<Player> predicate) {
         requireNonNull(predicate);
-        filteredPersons.setPredicate(predicate);
+        filteredPlayers.setPredicate(predicate);
     }
 
     @Override
@@ -141,8 +141,8 @@ public class ModelManager implements Model {
 
         ModelManager otherModelManager = (ModelManager) other;
         return addressBook.equals(otherModelManager.addressBook)
-                && userPrefs.equals(otherModelManager.userPrefs)
-                && filteredPersons.equals(otherModelManager.filteredPersons);
+            && userPrefs.equals(otherModelManager.userPrefs)
+            && filteredPlayers.equals(otherModelManager.filteredPlayers);
     }
 
 }

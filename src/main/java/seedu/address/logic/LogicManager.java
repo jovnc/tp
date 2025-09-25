@@ -1,10 +1,5 @@
 package seedu.address.logic;
 
-import java.io.IOException;
-import java.nio.file.AccessDeniedException;
-import java.nio.file.Path;
-import java.util.logging.Logger;
-
 import javafx.collections.ObservableList;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.commons.core.LogsCenter;
@@ -15,8 +10,13 @@ import seedu.address.logic.parser.AddressBookParser;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.Model;
 import seedu.address.model.ReadOnlyAddressBook;
-import seedu.address.model.person.Person;
+import seedu.address.model.player.Player;
 import seedu.address.storage.Storage;
+
+import java.io.IOException;
+import java.nio.file.AccessDeniedException;
+import java.nio.file.Path;
+import java.util.logging.Logger;
 
 /**
  * The main LogicManager of the app.
@@ -25,7 +25,7 @@ public class LogicManager implements Logic {
     public static final String FILE_OPS_ERROR_FORMAT = "Could not save data due to the following error: %s";
 
     public static final String FILE_OPS_PERMISSION_ERROR_FORMAT =
-            "Could not save data to file %s due to insufficient permissions to write to the file or the folder.";
+        "Could not save data to file %s due to insufficient permissions to write to the file or the folder.";
 
     private final Logger logger = LogsCenter.getLogger(LogicManager.class);
 
@@ -67,8 +67,8 @@ public class LogicManager implements Logic {
     }
 
     @Override
-    public ObservableList<Person> getFilteredPersonList() {
-        return model.getFilteredPersonList();
+    public ObservableList<Player> getFilteredPlayerList() {
+        return model.getFilteredPlayerList();
     }
 
     @Override
