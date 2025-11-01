@@ -8,64 +8,66 @@
 
 #### Table of Contents
 
-- [PlayBook User Guide](#playbook-user-guide) 
-    - [Introduction](#introduction)
-        - [Who is PlayBook for?](#who-should-use-playbook) 
-        - [Why choose PlayBook?](#why-playbook)
-    - [Quick start](#quick-start)
-        - [Java Installation](#1-verify-java-installation)
-        - [Download PlayBook](#2-download-playbook)
-        - [Launch PlayBook](#3-launch-the-application)
-        - [Understanding the PlayBook GUI](#4-understanding-the-interface)
-        - [Your First Commands](#5-try-your-first-commands)
-        - [Enjoy PlayBook](#next-steps)
-    - [Command Reference](#command-reference)
-        - [Command Format Conventions](#command-format-conventions)
-        - [Global Feature Behaviours](#global-feature-behaviours)
-        - [Field Requirements](#field-requirements)
-    - [Features](#features)
-        - [Viewing help: `help`](#viewing-help-help)
-        - [Adding a team: `addteam`](#adding-a-team-addteam)
-        - [Adding a player: `add`](#adding-a-player-add)
-        - [Add a position: `addposition`](#adding-a-position-addposition)
-        - [Assign player to team: `assignteam`](#assign-player-to-team-assignteam)
-        - [Assigning a position to player: `assignposition`](#assigning-a-position-to-player-assignposition)
-        - [Assign an injury to player: `assigninjury`](#assign-an-injury-to-player-assigninjury)
-        - [Assigning player as captain: `assigncaptain`](#assigning-player-as-captain-assigncaptain)
-        - [Deleting a player, team or position: `delete`](#deleting-a-player-team-or-position-delete)
-        - [Unassign an injury from player: `unassigninjury`](#unassign-an-injury-from-player-unassigninjury)
-        - [Unassigning player as captain: `unassigncaptain`](#unassigning-player-as-captain-unassigncaptain)
-        - [Editing a player: `edit`](#editing-a-player-edit)
-        - [Locating players by name: `find`](#locating-players-by-name-find)
-        - [Listing all players: `list`](#listing-all-players-list)
-        - [Listing all captains: `listcaptain`](#listing-all-captains-listcaptain)
-        - [Listing all teams: `listteam`](#listing-all-teams-listteam)
-        - [Listing all positions: `listposition`](#listing-all-positions-listposition)
-        - [Listing all injured players: `listinjured`](#listing-all-injured-players-listinjured)
-        - [Filtering players by team, injury and/or position: `filter`](#filtering-players-by-team-injury-position-filter)
-        - [Clearing all entries: `clear`](#clearing-all-entries-clear)
-        - [Exiting the program: `exit`](#exiting-the-program-exit)
-        - [Saving the data](#saving-the-data)
-        - [Editing the data file](#editing-the-data-file)
-        - [Archiving data files](#archiving-data-files)
-    - [FAQ](#faq)
-    - [Known issues](#known-issues)
-    - [Command summary](#command-summary)
+- [PlayBook User Guide](#playbook-user-guide)
+      - [Table of Contents](#table-of-contents)
+  - [Introduction](#introduction)
+      - [Who should use PlayBook?](#who-should-use-playbook)
+      - [Why PlayBook?](#why-playbook)
+  - [Quick start](#quick-start)
+      - [1. Verify Java installation](#1-verify-java-installation)
+      - [2. Download PlayBook](#2-download-playbook)
+      - [3. Launch the application](#3-launch-the-application)
+      - [4. Understanding the interface](#4-understanding-the-interface)
+      - [5. Try your first commands](#5-try-your-first-commands)
+      - [Next steps](#next-steps)
+  - [Command Reference](#command-reference)
+    - [Command Format Conventions](#command-format-conventions)
+    - [Global Feature Behaviours](#global-feature-behaviours)
+    - [Field Requirements](#field-requirements)
+  - [Features](#features)
+      - [Viewing help: `help`](#viewing-help-help)
+      - [Adding a team: `addteam`](#adding-a-team-addteam)
+      - [Adding a player: `add`](#adding-a-player-add)
+      - [Adding a position: `addposition`](#adding-a-position-addposition)
+      - [Assign player to team: `assignteam`](#assign-player-to-team-assignteam)
+      - [Assigning a position to player: `assignposition`](#assigning-a-position-to-player-assignposition)
+      - [Assign an injury to player: `assigninjury`](#assign-an-injury-to-player-assigninjury)
+      - [Assigning player as captain: `assigncaptain`](#assigning-player-as-captain-assigncaptain)
+      - [Deleting a player, team or position: `delete`](#deleting-a-player-team-or-position-delete)
+      - [Unassign an injury from player: `unassigninjury`](#unassign-an-injury-from-player-unassigninjury)
+      - [Unassigning player as captain: `unassigncaptain`](#unassigning-player-as-captain-unassigncaptain)
+      - [Editing a player: `edit`](#editing-a-player-edit)
+      - [Locating players by name: `find`](#locating-players-by-name-find)
+      - [Listing all players: `list`](#listing-all-players-list)
+      - [Listing all captains: `listcaptain`](#listing-all-captains-listcaptain)
+      - [Listing all teams: `listteam`](#listing-all-teams-listteam)
+      - [Listing all positions: `listposition`](#listing-all-positions-listposition)
+      - [Listing all injured players: `listinjured`](#listing-all-injured-players-listinjured)
+      - [Filtering players by team, injury, position: `filter`](#filtering-players-by-team-injury-position-filter)
+      - [Clearing all entries: `clear`](#clearing-all-entries-clear)
+      - [Exiting the program: `exit`](#exiting-the-program-exit)
+      - [Saving the data](#saving-the-data)
+      - [Editing the data file](#editing-the-data-file)
+      - [Archiving data files](#archiving-data-files)
+  - [FAQ](#faq)
+  - [Known issues](#known-issues)
+  - [Command summary](#command-summary)
 
---------------------------------------------------------------------------------------------------------------------
+---
 
 ## Introduction
 
-PlayBook is a **desktop application for semi-professional youth football coaches** to manage player contacts, track injuries, and organize their teams. 
+PlayBook is a **desktop application for semi-professional youth football coaches** to manage player contacts, track injuries, and organize their teams.
 
 #### Who should use PlayBook?
 
 PlayBook is designed for semi-professional youth football coaches who:
-* Manage multiple teams
-* Familiar with football terminology (positions, injuries)
-* Track 20-50+ players across different age groups
-* Need quick access to player availability, positions, captaincy and injury status
-* Prefer typing commands over navigating complex GUIs
+
+- Manage multiple teams
+- Familiar with football terminology (positions, injuries)
+- Track 20-50+ players across different age groups
+- Need quick access to player availability, positions, captaincy and injury status
+- Prefer typing commands over navigating complex GUIs
 
 No coding experience required. Commands use simple English keywords like `add`, `delete`, `list`, and `filter`.
 
@@ -73,12 +75,12 @@ No coding experience required. Commands use simple English keywords like `add`, 
 
 Traditional contact apps weren't built for coaching. PlayBook solves common team management challenges:
 
-* **Find available players instantly** - `filter tm/U16 i/FIT ps/ST` shows all fit strikers on your U16 team in one command
-* **Update records in seconds** - Record an injury, assign a captain, or change positions without clicking through menus
-* **No internet dependency** - Access your full roster offline during matches, training sessions, or team selection
-* **Complete team overview** - Track positions, injuries, captaincy, and contact details in one application
+- **Find available players instantly** - `filter tm/U16 i/FIT ps/ST` shows all fit strikers on your U16 team in one command
+- **Update records in seconds** - Record an injury, assign a captain, or change positions without clicking through menus
+- **No internet dependency** - Access your full roster offline during matches, training sessions, or team selection
+- **Complete team overview** - Track positions, injuries, captaincy, and contact details in one application
 
---------------------------------------------------------------------------------------------------------------------
+---
 
 ## Quick start
 
@@ -93,9 +95,10 @@ java --version
 ```
 
 If you need to install Java:
-* **macOS**: [Installation guide](https://se-education.org/guides/tutorials/javaInstallationMac.html)
-* **Windows**: [Installation guide](https://se-education.org/guides/tutorials/javaInstallationWindows.html)
-* **Linux**: [Installation guide](https://se-education.org/guides/tutorials/javaInstallationLinux.html)
+
+- **macOS**: [Installation guide](https://se-education.org/guides/tutorials/javaInstallationMac.html)
+- **Windows**: [Installation guide](https://se-education.org/guides/tutorials/javaInstallationWindows.html)
+- **Linux**: [Installation guide](https://se-education.org/guides/tutorials/javaInstallationLinux.html)
 
 #### 2. Download PlayBook
 
@@ -123,7 +126,7 @@ The PlayBook window should open with sample data loaded.
 The PlayBook interface consists of:
 
 | Component          | Description                                                          |
-|--------------------|----------------------------------------------------------------------|
+| ------------------ | -------------------------------------------------------------------- |
 | **Command Box**    | Enter commands here. Press Enter to execute.                         |
 | **Result Display** | Shows command feedback, success messages, and error details.         |
 | **List View**      | Displays players, teams, or positions based on your current command. |
@@ -148,23 +151,27 @@ The PlayBook comes with 3 unique panels that can be toggled between each other v
 Type each command in the Command Box and press Enter.
 
 **Clear sample data:**
+
 ```
 clear
 ```
+
 **Expected result:** PlayBook displays "PlayBook has been cleared!" and the list becomes empty.
 
 **Create a team:**
+
 ```
 addteam tm/U16
 ```
+
 **Expected result:** "New team added: U16"
 
 **Add a player:**
 
-
 ```
 add pl/Alex Tan p/87654321 e/alex@example.com a/123 Main St tm/U16
 ```
+
 **Expected result:** Alex Tan's player card appears in the list with all details displayed. The result display shows the confirmation message with player information.
 
 <box type="info" seamless>
@@ -173,24 +180,26 @@ add pl/Alex Tan p/87654321 e/alex@example.com a/123 Main St tm/U16
 </box>
 
 **View all players:**
+
 ```
 list
 ```
+
 **Expected result:** All players in your PlayBook are displayed in the list view.
 
 #### Next steps
 
 You're now ready to manage your teams. Common tasks include:
 
-* **Add positions**: `addposition ps/LW`
-* **Assign positions**: `assignposition pl/Alex Tan ps/LW`
-* **Record injuries**: `assigninjury pl/Alex Tan i/Ankle sprain`
-* **Filter players**: `filter i/FIT` (show only fit players)
-* **Get help**: `help`
+- **Add positions**: `addposition ps/LW`
+- **Assign positions**: `assignposition pl/Alex Tan ps/LW`
+- **Record injuries**: `assigninjury pl/Alex Tan i/Ankle sprain`
+- **Filter players**: `filter i/FIT` (show only fit players)
+- **Get help**: `help`
 
 For complete documentation of all commands, see the [Features](#features) section below.
 
---------------------------------------------------------------------------------------------------------------------
+---
 
 ## Command Reference
 
@@ -200,40 +209,44 @@ This section explains how to read and use commands in PlayBook.
 
 <box type="info" seamless>
 
-* Words in `UPPER_CASE` are the parameters to be supplied by the user.<br>
+- Words in `UPPER_CASE` are the parameters to be supplied by the user.<br>
   e.g. in `add pl/PLAYER_NAME`, `PLAYER_NAME` is a parameter which can be used as `add pl/John Doe`.
 
-* Items in square brackets are optional.<br>
+- Items in square brackets are optional.<br>
+
   - e.g `pl/PLAYER_NAME [t/TAG]` can be used as `pl/John Doe t/friend` or as `pl/John Doe`.
 
-* Items with `…`​ after them can be used multiple times including zero times.<br>
+- Items with `…`​ after them can be used multiple times including zero times.<br>
   e.g. `[t/TAG]…​` can be used as ` ` (i.e. 0 times), `t/friend`, `t/friend t/family` etc.
 
-* Parameters can be in any order.<br>
+- Parameters can be in any order.<br>
   e.g. if the command specifies `pl/PLAYER_NAME p/PHONE_NUMBER`, `p/PHONE_NUMBER pl/PLAYER_NAME` is also acceptable.
 
-* Extraneous parameters for commands that do not take in parameters (such as `help`, `list`, `exit` and `clear`) will be ignored.<br>
+- Extraneous parameters for commands that do not take in parameters (such as `help`, `list`, `exit` and `clear`) will be ignored.<br>
   e.g. if the command specifies `help 123`, it will be interpreted as `help`.
 
-* If you are using a PDF version of this document, be careful when copying and pasting commands that span multiple lines as space characters surrounding line-breaks may be omitted when copied over to the application.
-</box>
+- If you are using a PDF version of this document, be careful when copying and pasting commands that span multiple lines as space characters surrounding line-breaks may be omitted when copied over to the application.
+  </box>
 
 ### Global Feature Behaviours
 
 1. **Team creation and deletion commands**:
-    - Automatically switches to the `Viewing Teams` panel (if not already in that view).
+
+   - Automatically switches to the `Viewing Teams` panel (if not already in that view).
 
 2. **Position creation and deletion commands**:
-    - Automatically switches to the `Viewing Positions` panel (if not already in that view).
+
+   - Automatically switches to the `Viewing Positions` panel (if not already in that view).
 
 3. **Player-related commands**: (`add`, `edit`, `delete`, `assign`, `unassign`, `filter`)
-    - Automatically switches to the `Viewing Players` panel (if not already in that view).
+   - Automatically switches to the `Viewing Players` panel (if not already in that view).
 
 <box type="info" seamless>
 
 **Notes:**
-* The view switches **only after the command succeeds**. If the command fails, the current view remains unchanged and an error message is displayed.
-* Refer to the respective list section for the detailed behaviour of each type of list command.
+
+- The view switches **only after the command succeeds**. If the command fails, the current view remains unchanged and an error message is displayed.
+- Refer to the respective list section for the detailed behaviour of each type of list command.
 
 </box>
 
@@ -242,40 +255,48 @@ This section explains how to read and use commands in PlayBook.
 The following requirements apply to all commands unless otherwise specified:
 
 **Player Name (`PLAYER_NAME`):**
-* Should contain alphanumeric characters and spaces only
-* Should not be blank
-* Is case-insensitive (e.g., `john doe` is the same as `John Doe`)
+
+- Should contain alphanumeric characters and spaces only
+- Should not be blank
+- Is case-insensitive (e.g., `john doe` is the same as `John Doe`)
 
 **Team Name (`TEAM_NAME`):**
-* Should contain alphanumeric characters and spaces only
-* Should not be blank
-* Is case-insensitive (e.g., `u16` is the same as `U16`)
+
+- Should contain alphanumeric characters and spaces only
+- Should not be blank
+- Is case-insensitive (e.g., `u16` is the same as `U16`)
 
 **Position Name (`POSITION_NAME`):**
-* Should contain only alphanumeric characters, with no spaces
-* Should not be blank
-* Is case-insensitive (e.g., `fw` is the same as `FW`)
+
+- Should contain only alphanumeric characters, with no spaces
+- Should not be blank
+- Is case-insensitive (e.g., `fw` is the same as `FW`)
 
 **Phone Number (`PHONE_NUMBER`):**
-* Should only contain numbers
-* Should be at least 3 digits long
-* Should not be blank
+
+- Should only contain numbers
+- Should be at least 3 digits long
+- Should not be blank
 
 **Email (`EMAIL`):**
-* Should be a valid email format (e.g., `john@example.com`)
-* Should not be blank
+
+- Should be a valid email format (e.g., `john@example.com`)
+- Should not be blank
 
 **Address (`ADDRESS`):**
-* Should not be blank
+
+- Should not be blank
 
 **Injury (`INJURY`):**
-* Should contain alphanumeric characters and spaces only
-* Should not be blank
-* Is case-insensitive (e.g., `acl` is the same as `ACL`)
+
+- Should contain alphanumeric characters and spaces only
+- Should not be blank
+- Is case-insensitive (e.g., `acl` is the same as `ACL`)
 
 **Tag (`TAG`):**
-* Should contain alphanumeric characters only
-* Is case-sensitive (e.g., `Friend` is different from `friend`)
+
+- Should contain alphanumeric characters only
+- Is case-sensitive (e.g., `Friend` is different from `friend`)
 
 </box>
 
@@ -286,15 +307,16 @@ The following requirements apply to all commands unless otherwise specified:
 When you create a team or position, PlayBook stores the exact capitalization you first use. All future references to that team or position (regardless of how you type it) will use this original capitalization.
 
 **Example:**
-* If you create `addteam tm/u16`, the team is stored as "u16"
-* Later commands like `add pl/John tm/U16` or `assignteam pl/John tm/U16` will work (case-insensitive matching)
-* But John's team will be displayed as "u16" (the original capitalization)
+
+- If you create `addteam tm/u16`, the team is stored as "u16"
+- Later commands like `add pl/John tm/U16` or `assignteam pl/John tm/U16` will work (case-insensitive matching)
+- But John's team will be displayed as "u16" (the original capitalization)
 
 The same applies to positions: if you create `addposition ps/LW`, all players assigned to that position will show "LW" even if you type `assignposition pl/John ps/lw`.
 
 </box>
 
---------------------------------------------------------------------------------------------------------------------
+---
 
 ## Features
 
@@ -306,7 +328,6 @@ Format: `help`
 
 ![help message](images/helpMessage.png)
 
-
 #### Adding a team: `addteam`
 
 Adds a team to the PlayBook.
@@ -314,9 +335,11 @@ Adds a team to the PlayBook.
 Format: `addteam tm/TEAM_NAME`
 
 **Requirements:**
-* `TEAM_NAME` must not be the same as an existing team in the PlayBook.
+
+- `TEAM_NAME` must not be the same as an existing team in the PlayBook.
 
 **Examples:**
+
 1. `addteam tm/U16` - Creates a team named `U16`
 2. `addteam tm/Reserves` - Creates a team named `Reserves`
 
@@ -335,8 +358,9 @@ Adds a player to the PlayBook.
 Format: `add pl/PLAYER_NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS tm/TEAM_NAME [t/TAG]…​`
 
 **Requirements:**
-* `PLAYER_NAME` must not be the same as an existing player in the PlayBook.
-* `TEAM_NAME` must be an existing team in the PlayBook. Use the `addteam` command to add a team first.
+
+- `PLAYER_NAME` must not be the same as an existing player in the PlayBook.
+- `TEAM_NAME` must be an existing team in the PlayBook. Use the `addteam` command to add a team first.
 
 <box type="warning" seamless>
 
@@ -349,6 +373,7 @@ Format: `add pl/PLAYER_NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS tm/TEAM_NAME [t/TAG
 </box>
 
 **Examples:**
+
 1. `add pl/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 tm/U16`
 2. `add pl/Betsy Crowe p/1234567 e/betsycrowe@example.com a/Newgate Prison tm/U16 t/friend t/scholarship`
 
@@ -360,7 +385,6 @@ Format: `add pl/PLAYER_NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS tm/TEAM_NAME [t/TAG
 
 </box>
 
-
 #### Adding a position: `addposition`
 
 Adds a position to the PlayBook.
@@ -368,7 +392,8 @@ Adds a position to the PlayBook.
 Format: `addposition ps/POSITION_NAME`
 
 **Requirements:**
-* `POSITION_NAME` must not be the same as an existing position in the PlayBook.
+
+- `POSITION_NAME` must not be the same as an existing position in the PlayBook.
 
 <box type="tip" seamless>
 
@@ -376,12 +401,13 @@ Format: `addposition ps/POSITION_NAME`
 </box>
 
 **Examples:**
+
 1. `addposition ps/LW` - Creates position named `LW`
 2. `addposition ps/ST` - Creates position named `ST`
 
 <box type="info" seamless>
 
-**Expected success message** (Example 1): "Position LW has been created successfully!" 
+**Expected success message** (Example 1): "Position LW has been created successfully!"
 
 **Expected behaviour:** Creates a new position named `LW`.
 
@@ -394,16 +420,17 @@ Assigns an existing player to another existing team.
 Format: `assignteam pl/PLAYER_NAME tm/TEAM_NAME`
 
 **Requirements:**
-* `PLAYER_NAME` must be an existing player in the PlayBook.
-* `TEAM_NAME` must be an existing team in the PlayBook. Use the `addteam` command to add a team first.
-* `PLAYER_NAME` must not already be assigned to `TEAM_NAME`.
+
+- `PLAYER_NAME` must be an existing player in the PlayBook.
+- `TEAM_NAME` must be an existing team in the PlayBook. Use the `addteam` command to add a team first.
+- `PLAYER_NAME` must not already be assigned to `TEAM_NAME`.
 
 <box type="warning" seamless>
 
 **Important: Captain Status Removal**
 
-When a player who is captain of their current team is reassigned to a new team, they will **automatically lose their captain status**. 
-This prevents having multiple captains in the same team. 
+When a player who is captain of their current team is reassigned to a new team, they will **automatically lose their captain status**.
+This prevents having multiple captains in the same team.
 You will be notified when this happens, and you can reassign captaincy using the `assigncaptain` command if needed.
 </box>
 
@@ -413,6 +440,7 @@ You will be notified when this happens, and you can reassign captaincy using the
 </box>
 
 **Examples:**
+
 1. `assignteam pl/John Doe tm/U16` - Moves John Doe to the U16 team
 2. `assignteam pl/Betsy Crowe tm/U18` - Moves Betsy Crowe to the U18 team
 
@@ -420,9 +448,9 @@ You will be notified when this happens, and you can reassign captaincy using the
 
 **Expected success message** (Example 1):
 
-* **For non-captain players:** "Player: John Doe has been successfully assigned to Team: U16!"
+- **For non-captain players:** "Player: John Doe has been successfully assigned to Team: U16!"
 
-* **For captain players:** "Player: John Doe has been successfully assigned to Team: U16!<br>John Doe has been stripped of captaincy from their previous team."
+- **For captain players:** "Player: John Doe has been successfully assigned to Team: U16!<br>John Doe has been stripped of captaincy from their previous team."
 
 **Expected behaviour:** The player's team will be immediately updated in their player card, and if they were a captain, the captain badge will be removed.
 
@@ -437,9 +465,10 @@ Assigns an existing position to an existing player in the PlayBook.
 Format: `assignposition pl/PLAYER_NAME ps/POSITION_NAME`
 
 **Requirements:**
-* `PLAYER_NAME` must be an existing player in the PlayBook.
-* `POSITION_NAME` must be an existing position in the PlayBook. Use the `addposition` command to add a position first.
-* The player must not already be assigned to the same position.
+
+- `PLAYER_NAME` must be an existing player in the PlayBook.
+- `POSITION_NAME` must be an existing position in the PlayBook. Use the `addposition` command to add a position first.
+- The player must not already be assigned to the same position.
 
 <box type="warning" seamless>
 
@@ -452,6 +481,7 @@ Format: `assignposition pl/PLAYER_NAME ps/POSITION_NAME`
 </box>
 
 **Examples:**
+
 1. `assignposition pl/John Doe ps/LW` - Assigns `LW` position to John Doe
 2. `assignposition pl/Musiala ps/ST` - Assigns `ST` position to Musiala
 
@@ -472,7 +502,8 @@ Assigns an injury status to an existing player in the PlayBook.
 Format: `assigninjury pl/PLAYER_NAME i/INJURY`
 
 **Requirements:**
-* `PLAYER_NAME` must be an existing player in the PlayBook.
+
+- `PLAYER_NAME` must be an existing player in the PlayBook.
 
 <box type="warning" seamless>
 
@@ -482,12 +513,14 @@ Format: `assigninjury pl/PLAYER_NAME i/INJURY`
 <box type="tip" seamless>
 
 **Tips:**
-* Players can sustain multiple concurrent injuries. Simply use `assigninjury` multiple times with different injury names.
-* Use specific injury names (e.g., "ACL", "hamstring strain", "ankle sprain") for better injury tracking.
-* After assigning an injury, use `listinjured` to view all injured players at a glance.
-</box>
+
+- Players can sustain multiple concurrent injuries. Simply use `assigninjury` multiple times with different injury names.
+- Use specific injury names (e.g., "ACL", "hamstring strain", "ankle sprain") for better injury tracking.
+- After assigning an injury, use `listinjured` to view all injured players at a glance.
+  </box>
 
 **Examples:**
+
 1. `assigninjury pl/John Doe i/ACL` - Marks John Doe with an ACL injury status
 2. `assigninjury pl/Musiala i/fibula fracture` - Marks Musiala with a fibula fracture injury status
 3. `assigninjury pl/John Doe i/hamstring strain` - Assigns a second injury status, hamstring strain, to John Doe
@@ -509,19 +542,22 @@ Assigns an existing player in the PlayBook to be captain.
 Format: `assigncaptain pl/PLAYER_NAME`
 
 **Requirements:**
-* `PLAYER_NAME` must be an existing player in the PlayBook.
-* The player must not already be an assigned captain.
-* **Only one captain per team is allowed** - when you assign a new captain to a team that already has a captain, the previous captain will automatically be stripped of their captaincy.
+
+- `PLAYER_NAME` must be an existing player in the PlayBook.
+- The player must not already be an assigned captain.
+- **Only one captain per team is allowed** - when you assign a new captain to a team that already has a captain, the previous captain will automatically be stripped of their captaincy.
 
 <box type="tip" seamless>
 
 **Tips:**
-* Each team can have only one captain at a time. If you assign a new captain, the old captain will be automatically removed.
-* Use `listcaptain` to see all current team captains.
-* **Captain status is team-specific**: If a captain is reassigned to a different team using `assignteam`, they will automatically lose their captain status. You'll need to use `assigncaptain` again if you want them to be captain of their new team.
-</box>
+
+- Each team can have only one captain at a time. If you assign a new captain, the old captain will be automatically removed.
+- Use `listcaptain` to see all current team captains.
+- **Captain status is team-specific**: If a captain is reassigned to a different team using `assignteam`, they will automatically lose their captain status. You'll need to use `assigncaptain` again if you want them to be captain of their new team.
+  </box>
 
 **Examples:**
+
 1. `assigncaptain pl/John Doe` - Assigns John Doe as captain.
 2. `assigncaptain pl/Sergio Ramos` - Assigns Sergio Ramos as captain. Unassigns the previous captain.
 
@@ -542,12 +578,14 @@ Deletes the specified player, team or position from the PlayBook.
 Format: `delete [pl/PLAYER_NAME] [tm/TEAM_NAME] [ps/POSITION_NAME]`
 
 **Requirements:**
-* You must provide **exactly one** parameter (either `pl/`, `tm/`, or `ps/`).
-* The player, team or position to be deleted must exist in the PlayBook.
+
+- You must provide **exactly one** parameter (either `pl/`, `tm/`, or `ps/`).
+- The player, team or position to be deleted must exist in the PlayBook.
 
 <box type="warning" seamless>
 
 **Warning:** This action cannot be undone!
+
 - **Deleting a player**: The player and all their information (team, position, injuries, tags) will be permanently removed.
 - **Deleting a team**: You can only delete a team if there are no players assigned to it. Please remove all players from the team before attempting to delete it.
 - **Deleting a position**: You can only delete a position if it is not assigned to any players. Please unassign the position from all players before attempting to delete it.
@@ -561,6 +599,7 @@ Consider making a backup of your data file before bulk deletions.
 </box>
 
 **Examples:**
+
 1. `delete pl/John Doe` - Permanently deletes player John Doe from PlayBook
 2. `delete tm/U16` - Deletes the U16 team from PlayBook (only if no players are assigned)
 3. `delete ps/LW` - Deletes LW position from PlayBook
@@ -569,18 +608,17 @@ Consider making a backup of your data file before bulk deletions.
 
 **Expected success message:**
 
-**For player deletion** (Example 1): "Player: John Doe; Phone: 98765432; Email: johnd@example.com; Address: John street, block 123, #01-01; Team: U16; Position: LW; Injuries: [ACL]; Captain Status: Active; Tags: ;  has been deleted successfully!"
+**For player deletion** (Example 1): "Player: John Doe; Phone: 98765432; Email: johnd@example.com; Address: John street, block 123, #01-01; Team: U16; Position: LW; Injuries: [ACL]; Captain Status: Active; Tags: ; has been deleted successfully!"
 
-* **Expected behaviour:** The player card will immediately disappear from the player list.
+- **Expected behaviour:** The player card will immediately disappear from the player list.
 
 **For team deletion** (Example 2): "Team: U16 has been deleted successfully!"
 
-* **Expected behaviour:** The team card will immediately disappear from the team list.
-
+- **Expected behaviour:** The team card will immediately disappear from the team list.
 
 **For position deletion** (Example 3): "Position: LW has been deleted successfully!"
 
-* **Expected behaviour:** The position card will immediately disappear from the position list.
+- **Expected behaviour:** The position card will immediately disappear from the position list.
 
 </box>
 
@@ -591,8 +629,9 @@ Removes an injury status currently assigned to an existing player in the Playboo
 Format: `unassigninjury pl/PLAYER_NAME i/INJURY`
 
 **Requirements:**
-* `PLAYER_NAME` must be an existing player in the PlayBook.
-* `INJURY` must match an injury status that is already assigned to the specified player.
+
+- `PLAYER_NAME` must be an existing player in the PlayBook.
+- `INJURY` must match an injury status that is already assigned to the specified player.
 
 <box type="warning" seamless>
 
@@ -602,12 +641,14 @@ Format: `unassigninjury pl/PLAYER_NAME i/INJURY`
 <box type="tip" seamless>
 
 **Tips:**
-* If the player has multiple injuries, removing one injury will keep the others. Only when all injuries are removed will the injury status return to `FIT`.
-* The injury name must match exactly (case-insensitive) with what was assigned to the specified player.
-* Use `listinjured` to check the current injury statuses before unassigning.
-</box>
+
+- If the player has multiple injuries, removing one injury will keep the others. Only when all injuries are removed will the injury status return to `FIT`.
+- The injury name must match exactly (case-insensitive) with what was assigned to the specified player.
+- Use `listinjured` to check the current injury statuses before unassigning.
+  </box>
 
 **Examples:**
+
 1. `unassigninjury pl/John Doe i/ACL` - Removes the ACL injury status from John Doe
 2. `unassigninjury pl/Musiala i/fibula fracture` - Removes the fibula fracture injury status from Musiala
 
@@ -626,10 +667,12 @@ Removes captain status from an existing player in the PlayBook.
 Format: `unassigncaptain pl/PLAYER_NAME`
 
 **Requirements:**
-* `PLAYER_NAME` must be an existing player in the PlayBook.
-* The player must already be an assigned captain.
+
+- `PLAYER_NAME` must be an existing player in the PlayBook.
+- The player must already be an assigned captain.
 
 **Examples:**
+
 1. `unassigncaptain pl/John Doe` - Removes captain status from John Doe
 2. `unassigncaptain pl/Sergio Ramos` - Removes captain status from Sergio Ramos
 
@@ -648,26 +691,30 @@ Edits an existing player in the PlayBook. Existing values will be updated to the
 Format: `edit pl/PLAYER_NAME [n/NEW_PLAYER_NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]…​`
 
 **Requirements:**
-* At least one of the optional fields must be provided.
-* `PLAYER_NAME` must be an existing player in the PlayBook.
-* `NEW_PLAYER_NAME` must not be the same as an existing player in the PlayBook.
+
+- At least one of the optional fields must be provided.
+- `PLAYER_NAME` must be an existing player in the PlayBook.
+- `NEW_PLAYER_NAME` must not be the same as an existing player in the PlayBook.
 
 <box type="warning" seamless>
 
 **Warnings:**
-* When editing tags, all existing tags will be replaced with the new ones. If you want to keep existing tags, you must include them in the edit command.
-* You cannot edit team, injury status, position, or captain status through this command - use `assignteam`, `assigninjury`, `assignposition`, or `assigncaptain` commands instead.
-</box>
+
+- When editing tags, all existing tags will be replaced with the new ones. If you want to keep existing tags, you must include them in the edit command.
+- You cannot edit team, injury status, position, or captain status through this command - use `assignteam`, `assigninjury`, `assignposition`, or `assigncaptain` commands instead.
+  </box>
 
 <box type="tip" seamless>
 
 **Tips:**
-* You can edit multiple fields at once (e.g., both phone and email).
-* To remove all tags, use `t/` without any tag names after it.
-* Edit accepts a combination of unchanged and updated fields, provided that the entered values meet the stated requirements. It will update only the fields that differ. However, it does not allow all fields to be unchanged.
-</box>
+
+- You can edit multiple fields at once (e.g., both phone and email).
+- To remove all tags, use `t/` without any tag names after it.
+- Edit accepts a combination of unchanged and updated fields, provided that the entered values meet the stated requirements. It will update only the fields that differ. However, it does not allow all fields to be unchanged.
+  </box>
 
 **Examples:**
+
 1. `edit pl/John Doe p/91234567 e/johndoe@example.com` - Updates phone and email
 2. `edit pl/John Doe n/Betsy Crower t/` - Renames player and removes all tags
 3. `edit pl/John Doe a/21 Lower Kent Ridge Rd t/scholarship` - Updates address and adds tag
@@ -687,22 +734,26 @@ Finds players whose names contain any of the given keywords provided.
 Format: `find KEYWORD [MORE_KEYWORDS]`
 
 **Requirements:**
-* Keywords will only match full words e.g. `John` will not match `Johnny`.
-* Players matching at least one keyword will be returned (i.e. `OR` search).
+
+- Keywords will only match full words e.g. `John` will not match `Johnny`.
+- Players matching at least one keyword will be returned (i.e. `OR` search).
   e.g. `John Bo` will return `John Gruber`, `Bo Yang`.
 
 **Warnings:**
-* Duplicate keywords are not allowed when using the command.
+
+- Duplicate keywords are not allowed when using the command.
 
 <box type="tip" seamless>
 
 **Tips:**
-* Use `find` when you remember part of a player's name but not their full name.
-* To return to the view of all players after a search, use the `list` command.
-* For more advanced filtering by team, position, or injury status, use the `filter` command.
-</box>
+
+- Use `find` when you remember part of a player's name but not their full name.
+- To return to the view of all players after a search, use the `list` command.
+- For more advanced filtering by team, position, or injury status, use the `filter` command.
+  </box>
 
 **Examples:**
+
 1. `find John` - Returns players named "John Doe" and "John Smith"
 2. `find alex david` - Returns "Alex Yeo" and "David Li" (matches either keyword)
 
@@ -792,10 +843,11 @@ Format: `listinjured`
 <box type="tip" seamless>
 
 **Tips:**
-* Use this command before match day to quickly see who is unavailable.
-* Combine the result with team information in the player cards to see which teams are affected by injuries.
-* This shows all the players with any injury status other than "FIT".
-</box>
+
+- Use this command before match day to quickly see who is unavailable.
+- Combine the result with team information in the player cards to see which teams are affected by injuries.
+- This shows all the players with any injury status other than "FIT".
+  </box>
 
 <box type="info" seamless>
 
@@ -810,28 +862,32 @@ Filter players by team, injury and/or position.
 Format: `filter [tm/TEAM_NAME] [i/INJURY] [ps/POSITION_NAME]`
 
 **Requirements:**
-* At least one of the optional fields must be provided.
-* `TEAM_NAME` must be an existing team in the PlayBook. Use the `addteam` command to add a team first.
-* `POSITION_NAME` must be an existing position in the PlayBook. Use the `addposition` command to add a position first.
-* `TEAM_NAME`, `INJURY`, and `POSITION_NAME` use exact whole-field string matching (i.e. `AND` search).
-  * e.g., `filter i/Broken Leg` returns only players whose `INJURY` is `Broken Leg` or `broken leg` (case-insensitive)
-  * e.g., `filter tm/Manchester United` returns only players whose `TEAM_NAME` is `Manchester United` or `manchester United` (case-insensitive)
+
+- At least one of the optional fields must be provided.
+- `TEAM_NAME` must be an existing team in the PlayBook. Use the `addteam` command to add a team first.
+- `POSITION_NAME` must be an existing position in the PlayBook. Use the `addposition` command to add a position first.
+- `TEAM_NAME`, `INJURY`, and `POSITION_NAME` use exact whole-field string matching (i.e. `AND` search).
+  - e.g., `filter i/Broken Leg` returns only players whose `INJURY` is `Broken Leg` or `broken leg` (case-insensitive)
+  - e.g., `filter tm/Manchester United` returns only players whose `TEAM_NAME` is `Manchester United` or `manchester United` (case-insensitive)
 
 **Warnings:**
-* `POSITION_NAME` cannot be `NONE` when filtering by position.
-* For `TEAM_NAME` and `POSITION_NAME`, only leading and trailing spaces will be trimmed, any spaces in the name will be used for exact matching.
-  * e.g., `John Doe` will match `   John Doe` but not match `John     Doe`.
+
+- `POSITION_NAME` cannot be `NONE` when filtering by position.
+- For `TEAM_NAME` and `POSITION_NAME`, only leading and trailing spaces will be trimmed, any spaces in the name will be used for exact matching.
+  - e.g., `John Doe` will match `   John Doe` but not match `John     Doe`.
 
 <box type="tip" seamless>
 
 **Tips:**
-* **Pre-match planning**: Use `filter tm/U16 i/FIT` to see all the available U16 players.
-* **Position planning**: Use `filter ps/ST i/FIT` to find all the fit strikers across teams.
-* **Injury tracking**: Use `filter tm/U18 i/ACL` to see all the U18 players with ACL injuries.
-* Combine multiple filters for precise results. All conditions must be met (`AND` logic).
-</box>
+
+- **Pre-match planning**: Use `filter tm/U16 i/FIT` to see all the available U16 players.
+- **Position planning**: Use `filter ps/ST i/FIT` to find all the fit strikers across teams.
+- **Injury tracking**: Use `filter tm/U18 i/ACL` to see all the U18 players with ACL injuries.
+- Combine multiple filters for precise results. All conditions must be met (`AND` logic).
+  </box>
 
 **Examples:**
+
 1. `filter tm/U16 ps/FW` - Shows the U16 players who play Forward
 2. `filter ps/FW tm/U17 i/FIT` - Shows the fit Forwards from U17 team
 3. `filter i/Leg Broken ps/MF` - Shows the Midfielders with a leg broken injury
@@ -840,7 +896,7 @@ Format: `filter [tm/TEAM_NAME] [i/INJURY] [ps/POSITION_NAME]`
 
 <box type="info" seamless>
 
-**Expected success message:** "X persons listed!" where X is the number of players matching all the filtering criteria(s). 
+**Expected success message:** "X persons listed!" where X is the number of players matching all the filtering criteria(s).
 
 **Expected behaviour:** Only the matching players will be displayed.
 
@@ -858,10 +914,11 @@ Format: `clear`
 **WARNING: IRREVERSIBLE ACTION!**
 
 This command will permanently delete:
-* All players and their information
-* All teams
-* All positions
-* All assignments (injuries, captaincy, etc.)
+
+- All players and their information
+- All teams
+- All positions
+- All assignments (injuries, captaincy, etc.)
 
 **There is no undo.** Make sure you have a backup of your data file (located under `/data/playbook.json`) before using this command!
 </box>
@@ -907,17 +964,18 @@ PlayBook data are saved automatically as a JSON file `/data/playbook.json`. Adva
 <box type="warning" seamless>
 
 **Caution:**
-* If your changes to the data file make its format invalid, PlayBook will discard all data and start with an empty data file at the next run.
-* Always make a backup of the file before editing it manually.
-* Certain edits can cause PlayBook to behave in unexpected ways (e.g., if a value entered is outside the acceptable range).
-* Only edit the data file if you are confident that you can update it correctly.
-</box>
+
+- If your changes to the data file make its format invalid, PlayBook will discard all data and start with an empty data file at the next run.
+- Always make a backup of the file before editing it manually.
+- Certain edits can cause PlayBook to behave in unexpected ways (e.g., if a value entered is outside the acceptable range).
+- Only edit the data file if you are confident that you can update it correctly.
+  </box>
 
 #### Archiving data files
 
 _Details coming soon in v2.0 ..._
 
---------------------------------------------------------------------------------------------------------------------
+---
 
 ## FAQ
 
@@ -948,16 +1006,16 @@ _Details coming soon in v2.0 ..._
 **Q: Does PlayBook work offline?**<br>
 **A:** Yes! PlayBook works completely offline and stores all data locally on your computer.
 
---------------------------------------------------------------------------------------------------------------------
+---
 
 ## Known issues
 
-1. **When using multiple screens**, if you move the application to a secondary screen, and later switch to using only the primary screen, the GUI will open off-screen. 
+1. **When using multiple screens**, if you move the application to a secondary screen, and later switch to using only the primary screen, the GUI will open off-screen.
    - **Remedy**: delete the `preferences.json` file created by the application before running the application again
-2. **If you minimize the Help Window** and then run the `help` command (or use the `Help` menu, or the keyboard shortcut `F1`) again, the original Help Window will remain minimized, and no new Help Window will appear. 
+2. **If you minimize the Help Window** and then run the `help` command (or use the `Help` menu, or the keyboard shortcut `F1`) again, the original Help Window will remain minimized, and no new Help Window will appear.
    - **Remedy**: manually restore the minimized Help Window
 3. **Due to Playbook's case-insensitive name matching system**, names like `john doe` and `John Doe` are treated as the same player.
-   - **Problem**: editing a name only to change its capitalisation, such as `edit pl/john doe n/John Doe`, will fail because the system does not consider capitalisation-only modifications to be meaningful   
+   - **Problem**: editing a name only to change its capitalisation, such as `edit pl/john doe n/John Doe`, will fail because the system does not consider capitalisation-only modifications to be meaningful
    - **Remedy**: temporarily rename the player to a different name with `edit pl/john doe n/Temp Name`, then re-edit it back to the correct capitalisation using `edit pl/Temp Name n/John Doe`
 4. **Playbook's duplicate detection** treats names with different spacing as different entries.
    - **Example**: `Alex Yeoh`, `AlexYeoh`, and `Alex  Yeoh` (double-spacing) are all considered separate players, which can create unintended duplicate entries due to spacing variations
@@ -970,12 +1028,12 @@ _Details coming soon in v2.0 ..._
      - An input like `1234 5678 (HP) 1111-3333 (Office)` will be rejected and triggers an error message to notify you of this behaviour
    - **Remedy**: provide a single phone number—typically the player's personal number or their designated emergency contact—using digits only, which is sufficient to satisfy the functional needs of Playbook users
 
---------------------------------------------------------------------------------------------------------------------
+---
 
 ## Command summary
 
 | Action                              | Format, Examples                                                                                                                                                                                  |
-|-------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Help**                            | `help`                                                                                                                                                                                            |
 | **Add Team**                        | `addteam tm/TEAM_NAME` <br> e.g., `addteam tm/u16`                                                                                                                                                |
 | **Add Player**                      | `add pl/PLAYER_NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS tm/TEAM_NAME [t/TAG]…` <br> e.g., `add pl/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 tm/u16 t/friend t/colleague` |
