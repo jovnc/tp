@@ -1000,6 +1000,16 @@ _Details coming soon in v2.0 ..._
      - Keep field values concise when entering data (use abbreviations where appropriate)
      - For addresses, consider using standardized short forms (e.g., "Blk 123 #01-456" instead of "Block 123 Unit 01-456 Street Name")
    - **Future improvement**: implement expandable fields, tooltips on hover showing full text, or a detailed view panel that displays complete information for selected players without truncation
+6. **Players can only be assigned to one position and one team at a time**, which doesn't reflect the reality of versatile players who can play multiple positions or participate in multiple teams.
+   - **Problem**: PlayBook currently enforces a one-position-per-player and one-team-per-player model. This creates several limitations:
+     - When you assign a new position using `assignposition pl/PLAYER_NAME ps/NEW_POSITION`, it replaces the existing position entirely
+     - Using `assignteam pl/PLAYER_NAME tm/NEW_TEAM` overwrites the previous team assignment
+   - **Remedy**: 
+     - Use tags to record additional positions (e.g., `t/CanPlayST` for a player whose primary position is LW)
+     - Use tags to indicate multi-team participation (e.g., `t/AlsoInU18` for a U16 player)
+     - Choose the most frequently played position or primary team as the official assignment
+     - Update the position or team assignment before specific matches based on the lineup needs
+   - **Future improvement**: allow multiple position assignments per player (e.g., `assignposition pl/John Doe ps/LW ps/ST ps/CAM`) and multiple team memberships, with the ability to designate primary vs. secondary positions/teams
 
 --------------------------------------------------------------------------------------------------------------------
 
