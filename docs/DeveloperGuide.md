@@ -18,7 +18,7 @@
     * [Storage component](#storage-component)
     * [Common classes](#common-classes)
 * [Implementation](#implementation)
-    * [Proposed undo or redo feature](#proposed-undo-or-redo-feature)
+    * [Proposed undo and redo feature](#proposed-undo-and-redo-feature)
 * [Documentation, logging, testing, configuration, dev-ops](#documentation-logging-testing-configuration-dev-ops)
 * [Appendix: Planned Enhancements](#appendix-planned-enhancements)
     * [Enhanced Name Validation with Whitespace-normalized Duplicate Detection](#1-enhanced-name-validation-with-whitespace-normalized-duplicate-detection)
@@ -26,7 +26,7 @@
     * [Flexible Phone Number Format Support](#3-flexible-phone-number-format-support)
     * [Enhanced Tag Management](#4-enhanced-tag-management)
     * [Enhanced Prefix Validation and Error Messages](#5-enhanced-prefix-validation-and-error-messages)
-    * [Undo/Redo Functionality](#6-undoredo-functionality)
+    * [Undo and Redo Functionality](#6-undo-and-redo-functionality)
     * [Enhanced Delete Operation to Support Bulk Deletion](#7-enhanced-delete-operation-to-support-bulk-deletion)
     * [Enhanced Add Command to Support Optional Position and Injury Assignment](#8-enhanced-add-command-to-support-optional-position-and-injury-assignment)
     * [Enhanced Filter Command Success Message](#9-enhanced-filter-command-success-message)
@@ -241,7 +241,7 @@ Classes used by multiple components are in the `seedu.address.commons` package.
 
 This section describes some noteworthy details on how certain features are implemented.
 
-### Proposed undo or redo feature
+### Proposed undo and redo feature
 
 #### Proposed Implementation
 
@@ -412,7 +412,7 @@ Example valid tags after enhancement: `friend`, `senior player`, `U-16 team`, `p
 
 Example error message after enhancement (for same example): `Invalid prefix: 'tm/' for assigninjury command`. `Expected prefixes: 'pl/', 'i/'`.
 
-### 6. Undo/Redo Functionality
+### 6. Undo and Redo Functionality
 
 **Current Limitation**: There is no way to undo accidental operations such as deleting a player, editing information, or removing assignments.
 
