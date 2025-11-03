@@ -56,7 +56,7 @@
 
 ## Introduction
 
-PlayBook is a **desktop application for semi-professional youth football coaches** to manage player contacts, track injuries, and organize their teams. 
+PlayBook is a **desktop application for semi-professional youth football coaches** to manage player contacts, track injuries, and organise their teams. 
 
 #### Who should use PlayBook?
 
@@ -394,7 +394,7 @@ Format: `addposition ps/POSITION_NAME`
 
 <box type="tip" seamless>
 
-**Tip:** Create standard football positions like GK (Goalkeeper), CB (Center Back), LW (Left Wing), ST (Striker), etc. for easier team management.
+**Tip:** Create standard football positions like GK (Goalkeeper), CB (Centre Back), LW (Left Wing), ST (Striker), etc. for easier team management.
 </box>
 
 **Examples:**
