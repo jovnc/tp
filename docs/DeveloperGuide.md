@@ -21,6 +21,16 @@
     * [Proposed undo or redo feature](#proposed-undo-or-redo-feature)
 * [Documentation, logging, testing, configuration, dev-ops](#documentation-logging-testing-configuration-dev-ops)
 * [Appendix: Planned Enhancements](#appendix-planned-enhancements)
+    * [Enhanced Name Validation with Whitespace-normalized Duplicate Detection](#1-enhanced-name-validation-with-whitespace-normalized-duplicate-detection)
+    * [Case-Only Name Edit Support](#2-case-only-name-edit-support)
+    * [Flexible Phone Number Format Support](#3-flexible-phone-number-format-support)
+    * [Enhanced Tag Management](#4-enhanced-tag-management)
+    * [Enhanced Prefix Validation and Error Messages](#5-enhanced-prefix-validation-and-error-messages)
+    * [Undo/Redo Functionality](#6-undoredo-functionality)
+    * [Enhanced Delete Operation to Support Bulk Deletion](#7-enhanced-delete-operation-to-support-bulk-deletion)
+    * [Enhanced Add Command to Support Optional Position and Injury Assignment](#8-enhanced-add-command-to-support-optional-position-and-injury-assignment)
+    * [Enhanced Filter Command Success Message](#9-enhanced-filter-command-success-message)
+    * [Enhanced Injury Operations with Bulk Support](#10-enhanced-injury-operations-with-bulk-support)
 * [Appendix: Requirements](#appendix-requirements)
     * [Product scope](#product-scope)
     * [User stories](#user-stories)
@@ -29,8 +39,25 @@
     * [Glossary](#glossary)
 * [Appendix: Instructions for manual testing](#appendix-instructions-for-manual-testing)
     * [Launch and shutdown](#launch-and-shutdown)
-    * [Deleting a player](#deleting-a-player)
+    * [Adding a team](#adding-a-team)
+    * [Adding a position](#adding-a-position)
+    * [Adding a player](#adding-a-player)
+    * [Editing a player](#editing-a-player)
+    * [Assigning a player to a team](#assigning-a-player-to-a-team)
+    * [Assigning a position to a player](#assigning-a-position-to-a-player)
     * [Assigning an injury status to a player](#assigning-an-injury-status-to-a-player)
+    * [Assigning a captaincy to a player](#assigning-a-captaincy-to-a-player)
+    * [Unassigning an injury status to a player](#unassigning-an-injury-status-to-a-player)
+    * [Unassigning a captaincy from a player](#unassigning-a-captaincy-from-a-player)
+    * [Deleting a player](#deleting-a-player)
+    * [Deleting a position or team](#deleting-a-position-or-team)
+    * [Listing players](#listing-players)
+    * [Listing teams](#listing-teams)
+    * [Listing positions](#listing-positions)
+    * [Listing injured players](#listing-injured-players)
+    * [Listing captains](#listing-captains)
+    * [Finding players](#finding-players)
+    * [Filtering players](#filtering-players)
     * [Saving data](#saving-data)
 * [Appendix: Effort](#appendix-effort)
   * [Difficulty Level](#difficulty-level)
@@ -1157,7 +1184,7 @@ testers are expected to do more *exploratory* testing.
     1. Test case: `edit pl/John Doe n/Alex Yeoh` (where `Alex Yeoh` already exists in the player list)<br>
        Expected: No player is edited. Error details shown in the status message indicating that a duplicate player already exists in PlayBook.
 
-### Assigning a player to a team 
+### Assigning a player to a team
 
 1. Assigning a player to a team while all players are being shown
 
